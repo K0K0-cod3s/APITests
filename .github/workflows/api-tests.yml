@@ -11,6 +11,11 @@ on:
 jobs:
   build-and-test:
     runs-on: ubuntu-latest
+    permissions: # Add these permissions
+      contents: write # Needed for checkout and potentially for actions that modify repo content
+      pages: write    # Needed for deploying to GitHub Pages
+      id-token: write # Needed for OIDC token issuance, often used by gh-pages action
+
 
     steps:
       - name: Checkout code
